@@ -1,6 +1,5 @@
 package gears.com.lab_app_7;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by Yashodhan on 25-Feb-18, for Lab_app_7
  */
 
-public class SettingsActivity extends AppCompatActivity implements SettingsFragment.OnFragmentInteractionListener{
+public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +19,5 @@ public class SettingsActivity extends AppCompatActivity implements SettingsFragm
                 .commit();
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }

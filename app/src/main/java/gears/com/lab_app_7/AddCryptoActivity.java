@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class AddCryptoActivity extends AppCompatActivity {
 
-    EditText editText;
+    EditText editText,priceEditText;
     Button addButton,submitButton;
 
     @Override
@@ -20,17 +20,22 @@ public class AddCryptoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_crypto);
         editText = findViewById(R.id.add_edittext);
+        priceEditText = findViewById(R.id.add_edittext_price);
         addButton = findViewById(R.id.add_crypto_btn);
         submitButton = findViewById(R.id.add_submit);
-        final Intent t  =getIntent();
+        final Intent t  = new Intent();
         final ArrayList<String> cryptos = new ArrayList<>();
+        final ArrayList<String> prices = new ArrayList<>();
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String k = editText.getText().toString();
-                cryptos.add(k);
+                String cryptoName = editText.getText().toString();
+                String cryptoPrice = priceEditText.getText().toString();
+                cryptos.add(cryptoName);
+                prices.add(cryptoPrice);
                 Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
                 editText.setText("");
+                priceEditText.setText("");
             }
         });
 
@@ -38,9 +43,9 @@ public class AddCryptoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 t.putExtra("Cryptos",cryptos);
-
-                setResult(RESULT_OK);
-
+                t.putExtra("Prices",prices);
+                setResult(RESULT_OK,t);
+                finish();
 //                finishActivity(RESULT_OK);
             }
         });

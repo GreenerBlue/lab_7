@@ -2,13 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/popup_first"
-        android:title="Like"/>
+        android:title="Reload"/>
 
     <item
         android:id="@+id/popup_second"
-        android:title="Share"/>
-
-    <item
-        android:id="@+id/popup_third"
-        android:title="Subscribe"/>
+        android:title="Like"
+        android:icon="@android:drawable/ic_popup_reminder"
+        />
 </menu>
