@@ -7,6 +7,5 @@
     <item
         android:id="@+id/popup_second"
         android:title="Like"
-        android:icon="@android:drawable/ic_popup_reminder"
         />
 </menu>
