@@ -13,8 +13,7 @@
         android:text="Coinbase"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:paddingBottom="50dp"
-        />
+        android:paddingBottom="50dp" />
 
 
     <LinearLayout
@@ -26,15 +25,13 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/main_textView"
-            android:padding="5dp"
-            />
+            android:padding="5dp" />
         <TextView
             android:padding="5dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/main_textView_price"
-            />
+            android:id="@+id/main_textView_price" />
 
 
     </LinearLayout>

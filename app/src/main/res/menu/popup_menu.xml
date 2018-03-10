@@ -2,10 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/popup_first"
-        android:title="Reload"/>
+        android:title="@string/first"/>
 
     <item
         android:id="@+id/popup_second"
-        android:title="Like"
-        />
+        android:title="@string/second" />
 </menu>

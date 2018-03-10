@@ -3,16 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_first"
-        android:title="add crypto"
-        app:showAsAction="always"
-        />
+        android:title="@string/add_currency"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_second"
-        android:title="Settings"
-    />
+        android:title="@string/settings"/>
     <item
         android:id="@+id/menu_third"
-        android:title="@string/third"
-    />
+        android:title="@string/third" />
 
 </menu>

@@ -14,6 +14,8 @@ public class AddCryptoActivity extends AppCompatActivity {
 
     EditText editText,priceEditText;
     Button addButton,submitButton;
+    final ArrayList<String> cryptos = new ArrayList<>();
+    final ArrayList<String> prices = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,33 +25,23 @@ public class AddCryptoActivity extends AppCompatActivity {
         priceEditText = findViewById(R.id.add_edittext_price);
         addButton = findViewById(R.id.add_crypto_btn);
         submitButton = findViewById(R.id.add_submit);
+    }
+
+    public void addItems(View view) {
+        String cryptoName = editText.getText().toString();
+        String cryptoPrice = priceEditText.getText().toString();
+        cryptos.add(cryptoName);
+        prices.add(cryptoPrice);
+        Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
+        editText.setText("");
+        priceEditText.setText("");
+    }
+
+    public void submit(View view) {
         final Intent t  = new Intent();
-        final ArrayList<String> cryptos = new ArrayList<>();
-        final ArrayList<String> prices = new ArrayList<>();
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String cryptoName = editText.getText().toString();
-                String cryptoPrice = priceEditText.getText().toString();
-                cryptos.add(cryptoName);
-                prices.add(cryptoPrice);
-                Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
-                editText.setText("");
-                priceEditText.setText("");
-            }
-        });
-
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t.putExtra("Cryptos",cryptos);
-                t.putExtra("Prices",prices);
-                setResult(RESULT_OK,t);
-                finish();
-//                finishActivity(RESULT_OK);
-            }
-        });
-
-
+        t.putExtra("Cryptos",cryptos);
+        t.putExtra("Prices",prices);
+        setResult(RESULT_OK,t);
+        finish();
     }
 }

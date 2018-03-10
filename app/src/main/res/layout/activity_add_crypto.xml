@@ -13,9 +13,10 @@
             android:padding="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:id="@+id/add_edittext"
-            android:layout_weight="1"
-            />
+            android:hint="@string/add_currency"
+            android:layout_weight="1"/>
 
         <EditText
             android:padding="5dp"
@@ -23,23 +24,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/add_edittext_price"
-            />
-
+            android:hint="@string/price"
+            android:id="@+id/add_edittext_price" />
 
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD"
-        android:id="@+id/add_crypto_btn"
-        />
+        android:layout_gravity="center"
+        android:onClick="addItems"
+        android:text="@string/add"
+        android:id="@+id/add_crypto_btn" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/add_submit"
-        android:text="Submit"
-        />
+        android:layout_gravity="center"
+        android:onClick="submit"
+        android:text="@string/submit" />
 
 </LinearLayout>

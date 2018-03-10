@@ -22,6 +22,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
@@ -58,18 +61,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
         registerForContextMenu(textView);
 
-        cryptos.add("Bitcoin");
-        cryptos.add("Ripple");
-        cryptos.add("Monero");
-        prices.add("10000");
-        prices.add("1");
-        prices.add("250");
+        Collections.addAll(cryptos, "Bitcoin","Ripple","Monero");
+        Collections.addAll(prices,"10000","1","250");
         textView.setText(MakeString(prices));
         priceTextView.setText(MakeString(cryptos));
 
 
         priceTextView.setOnLongClickListener(new View.OnLongClickListener() {
-            // Called when the user long-clicks on someView
             public boolean onLongClick(View view) {
                 if (mActionMode != null) {
                     return false;
@@ -84,12 +82,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -120,17 +112,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         switch (item.getItemId()){
             case R.id.menu_first:
                 startActivityForResult(new Intent(MainActivity.this,AddCryptoActivity.class),1);
-
                 return true;
             case R.id.menu_second:
                 startActivity(new Intent(MainActivity.  this,SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
-
-
     }
 
     @Override
@@ -155,12 +143,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     case R.id.popup_second:
                         Toast.makeText(mContext,"Liked",Toast.LENGTH_SHORT).show();
                         return true;
-
                 }
                 return true;
             }
         });
-
         popupMenu.show();
     }
 
@@ -171,10 +157,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.clear_menu, menu);
     }
+
     boolean b = true;
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.menu_clear:
                 textView.setText("");
@@ -196,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if(key.equals ("pref_upd_curr_vals")){
@@ -207,17 +192,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     priceTextView.setVisibility(View.VISIBLE);
                 }
             }
-            else{
+            else
                 priceTextView.setVisibility(View.GONE);
-            }
         }
 
         if(key.equals("pref_night_mode")){
             boolean b = sharedPreferences.getBoolean(key,true);
-          if(b){
-
-              linearLayout.setBackgroundColor(getResources().getColor(R.color.colorDark));
-          }
+            if(b)
+                linearLayout.setBackgroundColor(getResources().getColor(R.color.colorDark));
             else linearLayout.setBackgroundColor(getResources().getColor(R.color.whtie));
         }
 
